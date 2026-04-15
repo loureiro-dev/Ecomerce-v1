@@ -1,0 +1,336 @@
+/* ============================================================
+   MANTO BRASIL — ANIMAÇÕES & EFEITOS
+   ============================================================ */
+
+/* ============================================================
+   1. KEYFRAMES
+   ============================================================ */
+
+/* Fade In de baixo */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Flutuação suave (produto flotando) */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+
+/* Pulsar brilho dourado */
+@keyframes goldPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(197, 160, 89, 0);
+  }
+  50% {
+    box-shadow: 0 0 30px 8px rgba(197, 160, 89, 0.25);
+  }
+}
+
+/* Shimmer (brilho passando) */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(200%) skewX(-15deg); }
+}
+
+/* Linha dourada expandindo */
+@keyframes lineExpand {
+  from { width: 0; opacity: 0; }
+  to   { width: 60px; opacity: 1; }
+}
+
+/* Rotação lenta (selos) */
+@keyframes slowRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Brilho do texto */
+@keyframes textGlow {
+  0%, 100% { text-shadow: 0 0 20px rgba(197, 160, 89, 0); }
+  50%       { text-shadow: 0 0 30px rgba(197, 160, 89, 0.5), 0 0 60px rgba(197, 160, 89, 0.2); }
+}
+
+/* Entrada da esquerda */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Entrada da direita */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Escala (zoom in suave) */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Contador contando */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Partícula dourada subindo */
+@keyframes particleRise {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  20% { opacity: 1; }
+  100% {
+    opacity: 0;
+    transform: translateY(-120px) scale(1.5);
+  }
+}
+
+/* Ondulação (ripple) no clique */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Ticker de texto rolando */
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================================
+   2. CLASSES DE ANIMAÇÃO (UTILITY)
+   ============================================================ */
+
+/* Animações de entrada — ativadas via JS ao entrar na viewport */
+.animate-fadeInUp {
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.7s ease forwards;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.7s ease forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Estado inicial: oculto antes de animar */
+.will-animate {
+  opacity: 0;
+}
+
+/* Delays escalonados para sequências */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
+.delay-700 { animation-delay: 0.7s; }
+.delay-800 { animation-delay: 0.8s; }
+
+/* ============================================================
+   3. EFEITOS PERPÉTUOS (LOOP)
+   ============================================================ */
+
+/* Flutuação do produto */
+.effect-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.effect-float-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+.effect-float-delay {
+  animation: float 4s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+/* Pulsar dourado */
+.effect-gold-pulse {
+  animation: goldPulse 2.5s ease-in-out infinite;
+}
+
+/* Rotação lenta */
+.effect-slow-rotate {
+  animation: slowRotate 20s linear infinite;
+}
+
+/* Brilho do texto */
+.effect-text-glow {
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+/* ============================================================
+   4. EFEITO SHIMMER (BRILHO PASSANDO — BOTÕES / CARDS)
+   ============================================================ */
+.shimmer-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%) skewX(-15deg);
+  pointer-events: none;
+}
+
+.shimmer-wrapper:hover::after {
+  animation: shimmer 0.7s ease forwards;
+}
+
+/* ============================================================
+   5. EFEITO CARD HOVER (TILT 3D)
+   ============================================================ */
+.card-3d {
+  transition: transform 0.15s ease, box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* ============================================================
+   6. TICKER / FAIXA ROLANTE
+   ============================================================ */
+.ticker-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ticker-content {
+  display: inline-block;
+  animation: ticker 25s linear infinite;
+}
+
+/* ============================================================
+   7. TRANSIÇÕES DE HOVER PREMIUM
+   ============================================================ */
+
+/* Scale leve ao hover */
+.hover-scale {
+  transition: transform var(--transition-base);
+}
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+
+/* Elevação / sombra ao hover */
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-gold-lg);
+}
+
+/* Brilho dourado ao hover */
+.hover-glow {
+  transition: box-shadow var(--transition-base);
+}
+.hover-glow:hover {
+  box-shadow: var(--shadow-gold);
+}
+
+/* ============================================================
+   8. EFEITO RIPPLE (CLIQUE EM BOTÕES)
+   ============================================================ */
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-effect {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(197, 160, 89, 0.3);
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  animation: ripple 0.6s linear;
+  pointer-events: none;
+}
+
+/* ============================================================
+   9. PARTÍCULAS DOURADAS
+   ============================================================ */
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  pointer-events: none;
+  animation: particleRise 1.5s ease-out forwards;
+}
+
+/* ============================================================
+   10. LOADING / SKELETON
+   ============================================================ */
+@keyframes skeletonPulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 0.8; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #1a1a1a 25%, #222 50%, #1a1a1a 75%);
+  background-size: 200% 100%;
+  animation: skeletonPulse 1.5s ease-in-out infinite;
+  border-radius: var(--radius-sm);
+}

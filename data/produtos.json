@@ -1,0 +1,150 @@
+{
+  "loja": {
+    "nome": "MANTO BRASIL",
+    "slogan": "Legado de Campeões",
+    "sloganBanner": "A Armadura Oficial da Nossa História. Edição de Colecionador 2026.",
+    "whatsapp": "5511999999999",
+    "instagram": "@mantobrasil",
+    "email": "contato@mantobrasil.com"
+  },
+  "produtos": [
+    {
+      "id": 1,
+      "slug": "camisa-canarinha-2026",
+      "colecao": "the-prince-collection",
+      "nome": "Camisa Titular \"Canarinha\"",
+      "subtitulo": "Edição Histórica 2026",
+      "descricao": "A camisa que representa o orgulho de uma nação. Tecido premium de alta performance com acabamento profissional. Escudo bordado com fio dourado. Numeração limitada.",
+      "descricao_longa": "A Camisa Canarinha 2026 foi pensada para quem quer tradição com acabamento premium. O tecido dryfit ajuda no conforto durante o uso diário ou em dia de jogo, enquanto os detalhes dourados reforcam o visual de colecionador. Um manto de destaque para torcer com presenca.",
+      "caracteristicas": [
+        "Tecido Dryfit Premium Anti-Suor",
+        "Escudo Bordado com Fio Dourado",
+        "Corte Oficial Seleção Brasileira",
+        "Numeração Limitada — Edição 2026"
+      ],
+      "preco_original": "349.90",
+      "preco_atual": "197.90",
+      "link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com",
+      "video": "assets/videos/camisa-canarinha.mp4",
+      "thumbnail": "assets/Produtos/Canarinha 2026/capa.png",
+      "galeria": [
+        "assets/Produtos/Canarinha 2026/capa.png",
+        "assets/videos/camisa-canarinha.mp4"
+      ],
+      "badge": "Mais Vendida",
+      "tamanhos": ["P", "M", "G", "GG", "XGG"],
+      "cor": "amarela",
+      "estoque": "Últimas unidades disponíveis"
+    },
+    {
+      "id": 2,
+      "slug": "camisa-the-prince-black",
+      "colecao": "the-prince-collection",
+      "nome": "Camisa Especial \"The Prince\"",
+      "subtitulo": "Edição Limitada Black",
+      "descricao": "A camisa que representa a força e o mistério do futebol brasileiro. Design exclusivo em preto com detalhes dourados. Para os que carregam o jogo nas veias.",
+      "descricao_longa": "A The Prince Black e uma peca de impacto visual, com acabamento escuro e identidade premium para quem busca exclusividade. Leve, respiravel e com caimento esportivo, ela combina performance e estilo em um manto que chama atencao.",
+      "caracteristicas": [
+        "Design Exclusivo Edição Limitada",
+        "Detalhes Dourados Premium",
+        "Tecido Ultra-Leve de Alta Performance",
+        "Numeração de Colecionador — Apenas 500 unidades"
+      ],
+      "preco_original": "399.90",
+      "preco_atual": "217.90",
+      "link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com",
+      "video": "assets/videos/camisa-the-prince.mp4",
+      "thumbnail": "assets/Produtos/The Prince Black/the-prince.png",
+      "galeria": [
+        "assets/Produtos/The Prince Black/the-prince.png",
+        "assets/videos/camisa-the-prince.mp4"
+      ],
+      "badge": "Edição Limitada",
+      "tamanhos": ["P", "M", "G", "GG", "XGG"],
+      "cor": "preta",
+      "estoque": "Apenas 50 unidades restantes"
+    },
+    {
+      "id": 3,
+      "slug": "camisa-brasil-i-2026-27-jogador",
+      "colecao": "lancamentos-2026",
+      "nome": "Camisa Brasil I 2026/27 Jogador Masculina",
+      "subtitulo": "Nova Era Aero-FIT",
+      "descricao": "Leve, elástica e com ventilação profissional, a camisa oficial para quem busca performance e autenticidade em cada detalhe.",
+      "descricao_longa": "Uma nova era de respirabilidade entrou em campo. A tecnologia Nike Aero-FIT foi desenvolvida para manter o fluxo de ar constante contra a pele e ajudar a manter o corpo fresco em jogos intensos. A combinacao de cores mais iconica do futebol celebra a beleza natural do Brasil e o estilo vibrante da equipe. Com a linha Match, voce veste o visual dos atletas profissionais com detalhes autenticos e ventilacao de elite. Produto importado, 100% poliester, lavagem a maquina.",
+      "caracteristicas": [
+        "Tecnologia Nike Aero-FIT de alta respirabilidade",
+        "Modelagem jogador com elasticidade premium",
+        "Detalhes autênticos inspirados no uniforme oficial",
+        "Produto importado em 100% poliéster"
+      ],
+      "preco_original": "429.90",
+      "preco_atual": "259.90",
+      "link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com",
+      "video": "",
+      "thumbnail": "assets/Produtos/Camisa Amarela 26/camisa_amarela_26.png",
+      "galeria": [
+        "assets/Produtos/Camisa Amarela 26/camisa_amarela_26.png",
+        "assets/Produtos/Camisa Amarela 26/image.png",
+        "assets/Produtos/Camisa Amarela 26/image2.png",
+        "assets/Produtos/Camisa Amarela 26/img3.png"
+      ],
+      "badge": "Lançamento 26/27",
+      "tamanhos": ["P", "M", "G", "GG", "XGG"],
+      "cor": "amarela",
+      "estoque": "Alta procura nesta semana"
+    },
+    {
+      "id": 4,
+      "slug": "camisa-jordan-brasil-ii-2026-27-jogador",
+      "colecao": "lancamentos-2026",
+      "nome": "Camisa Jordan Brasil II 2026-27 Jogador Masculina",
+      "subtitulo": "Modelo Jogador II Jordan",
+      "descricao": "Azul intensa, ousada e pronta para intimidar. Leveza, elasticidade e tecnologia Aero-FIT para desempenho de nível profissional.",
+      "descricao_longa": "A Camisa do Brasil Masculina Azul 2026 Modelo Jogador II Jordan chega com identidade forte e presenca em campo. Desenvolvida para maxima leveza e elasticidade, acompanha cada movimento com precisao. A tecnologia Nike Aero-FIT garante respirabilidade profissional, ajudando a manter o corpo fresco mesmo em alta intensidade. O azul vibrante desta camisa traz energia e atitude, com escudo em destaque e detalhes autenticos inspirados no uniforme dos atletas. Um manto para quem vive o futebol de verdade.",
+      "caracteristicas": [
+        "Tecnologia Nike Aero-FIT com fluxo de ar contínuo",
+        "Leveza e elasticidade para máximo desempenho",
+        "Visual Jordan com identidade forte e moderna",
+        "Detalhes autênticos com escudo em destaque"
+      ],
+      "preco_original": "449.90",
+      "preco_atual": "279.90",
+      "link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com",
+      "video": "",
+      "thumbnail": "assets/Produtos/Camisa Azul 26/camisa_azul_26.png",
+      "galeria": [
+        "assets/Produtos/Camisa Azul 26/camisa_azul_26.png",
+        "assets/Produtos/Camisa Azul 26/image.png",
+        "assets/Produtos/Camisa Azul 26/img2.png",
+        "assets/Produtos/Camisa Azul 26/img3.png"
+      ],
+      "badge": "Mais Vendida Atualmente",
+      "tamanhos": ["P", "M", "G", "GG", "XGG"],
+      "cor": "azul",
+      "estoque": "Apenas 80 unidades restantes"
+    }
+  ],
+  "confianca": [
+    {
+      "icone": "lock",
+      "titulo": "Pagamento Seguro",
+      "descricao": "Sua compra processada com criptografia de ponta a ponta."
+    },
+    {
+      "icone": "shield",
+      "titulo": "Garantia de Elite",
+      "descricao": "7 dias para troca ou devolução sem perguntas."
+    },
+    {
+      "icone": "package",
+      "titulo": "Rastreio Premium",
+      "descricao": "Receba o código de rastreio em até 48h e acompanhe cada passo."
+    },
+    {
+      "icone": "star",
+      "titulo": "Qualidade Certificada",
+      "descricao": "Produto oficial com certificado de autenticidade incluso."
+    }
+  ]
+}
