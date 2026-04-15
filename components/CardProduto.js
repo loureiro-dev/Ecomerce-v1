@@ -121,8 +121,7 @@ class CardProduto {
           <div class="price-current-wrapper">
             <span class="price-label">Por apenas</span>
             <span class="price-current">
-              <span class="price-currency">R$</span>
-              <span class="price-value">${precoAtual}</span>
+              <span class="price-value"> R$ ${precoAtual}</span>
             </span>
           </div>
 
@@ -136,6 +135,33 @@ class CardProduto {
         <div class="card-stock ${estoqueClass}" id="stock-product-${p.id}">
           <span class="stock-dot"></span>
           <span class="stock-text">${p.cor === 'preta' ? '🔥' : '⚡'} ${p.estoque}</span>
+        </div>
+
+        <!-- Urgência de envio -->
+        <div class="card-urgency">
+          <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/>
+            <circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
+          </svg>
+          Comprando hoje, enviamos em <strong>até 24h</strong>
+        </div>
+
+        <!-- Tamanhos -->
+        <div class="card-sizes" id="sizes-product-${p.id}">
+          <div class="sizes-header">
+            <span class="sizes-label">Tamanho:</span>
+            <a href="#" class="sizes-guide" onclick="return false;">Guia de tamanhos</a>
+          </div>
+          <div class="sizes-grid">
+            ${p.tamanhos.map((t) => `
+              <button 
+                class="size-btn ${t === 'G' ? 'size-btn--selected' : ''}" 
+                data-size="${t}"
+                aria-label="Tamanho ${t}"
+              >${t}</button>
+            `).join('')}
+          </div>
+          <p class="sizes-tip">Na dúvida, pegue um tamanho maior. ✓</p>
         </div>
 
         <!-- Botão de Compra -->
