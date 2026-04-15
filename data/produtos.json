@@ -25,11 +25,11 @@
       "preco_original": "349.90",
       "preco_atual": "197.90",
       "link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com",
-      "video": "assets/videos/camisa-canarinha.mp4",
-      "thumbnail": "assets/Produtos/Canarinha 2026/capa.png",
+      "video": "assets/Produtos/Canarinha 2026/camisa-canarinha (online-video-cutter.com).mp4",
+      "thumbnail": "assets/Produtos/Canarinha 2026/thumb_canarinha.png",
       "galeria": [
-        "assets/Produtos/Canarinha 2026/capa.png",
-        "assets/videos/camisa-canarinha.mp4"
+        "assets/Produtos/Canarinha 2026/camisa-canarinha (online-video-cutter.com).mp4",
+        "assets/Produtos/Canarinha 2026/thumb_canarinha.png"
       ],
       "badge": "Mais Vendida",
       "tamanhos": ["P", "M", "G", "GG", "XGG"],
@@ -53,11 +53,11 @@
       "preco_original": "399.90",
       "preco_atual": "217.90",
       "link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com",
-      "video": "assets/videos/camisa-the-prince.mp4",
-      "thumbnail": "assets/Produtos/The Prince Black/the-prince.png",
+      "video": "assets/Produtos/The Prince Black/0320 (online-video-cutter.com).mp4",
+      "thumbnail": "assets/Produtos/The Prince Black/Thumb_the_prince.png",
       "galeria": [
-        "assets/Produtos/The Prince Black/the-prince.png",
-        "assets/videos/camisa-the-prince.mp4"
+        "assets/Produtos/The Prince Black/0320 (online-video-cutter.com).mp4",
+        "assets/Produtos/The Prince Black/Thumb_the_prince.png"
       ],
       "badge": "Edição Limitada",
       "tamanhos": ["P", "M", "G", "GG", "XGG"],

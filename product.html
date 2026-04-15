@@ -54,6 +54,34 @@
       object-fit: cover;
     }
 
+    .main-media-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .main-media-fallback {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      opacity: 1;
+      transition: opacity 220ms ease;
+    }
+
+    .main-media-video {
+      position: relative;
+      z-index: 2;
+      background: #0d0d0d;
+    }
+
+    .main-media-wrapper.is-ready .main-media-fallback {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     .gallery-thumbs {
       margin-top: 12px;
       display: grid;
@@ -312,9 +340,25 @@
       return typeof path === 'string' && /\.(mp4|webm|ogg)$/i.test(path);
     }
 
-    function renderMainMedia(path) {
+    function renderMainMedia(path, posterPath = '') {
       if (isVideo(path)) {
-        return `<video src="${path}" autoplay loop muted playsinline controls></video>`;
+        const poster = posterPath || '';
+        return `
+          <div class="main-media-wrapper" data-main-media-wrapper>
+            <img class="main-media-fallback" src="${poster}" alt="Preview do produto" loading="eager" />
+            <video
+              class="main-media-video"
+              src="${path}"
+              poster="${poster}"
+              autoplay
+              loop
+              muted
+              playsinline
+              controls
+              preload="auto"
+            ></video>
+          </div>
+        `;
       }
       return `<img src="${path}" alt="Imagem principal do produto" loading="eager" />`;
     }
@@ -367,7 +411,7 @@
       root.innerHTML = `
         <section class="product-layout">
           <div>
-            <div class="gallery-main" id="gallery-main">${renderMainMedia(media[0])}</div>
+            <div class="gallery-main" id="gallery-main">${renderMainMedia(media[0], produto.thumbnail || media[0])}</div>
             <div class="gallery-thumbs">
               ${media.map((item, i) => `
                 <button class="thumb-btn ${i === 0 ? 'active' : ''}" data-media="${item}">
@@ -466,7 +510,8 @@
       thumbs.forEach((btn) => {
         btn.addEventListener('click', () => {
           const path = btn.getAttribute('data-media');
-          main.innerHTML = renderMainMedia(path);
+          main.innerHTML = renderMainMedia(path, produto.thumbnail || path);
+          initMainMediaFallback();
           thumbs.forEach((x) => x.classList.remove('active'));
           btn.classList.add('active');
         });
@@ -491,6 +536,27 @@
       });
 
       updateBuyLink();
+      initMainMediaFallback();
+    }
+
+    function initMainMediaFallback() {
+      const wrapper = document.querySelector('[data-main-media-wrapper]');
+      if (!wrapper) return;
+      const video = wrapper.querySelector('video');
+      if (!video) return;
+
+      const markReady = () => wrapper.classList.add('is-ready');
+      const markError = () => wrapper.classList.remove('is-ready');
+
+      if (video.readyState >= 2) {
+        markReady();
+      } else {
+        video.addEventListener('loadeddata', markReady, { once: true });
+        video.addEventListener('canplay', markReady, { once: true });
+      }
+
+      video.addEventListener('error', markError);
+      video.addEventListener('stalled', markError);
     }
 
     async function init() {
