@@ -19,8 +19,8 @@ Este projeto já tem `netlify.toml` com:
 - Teste:
   - `index.html`
   - `product.html?slug=...`
-  - `politica-troca.html`
-  - `privacidade.html`
+  - `pages/politica-troca.html`
+  - `pages/privacidade.html`
 
 ## 4) Pós deploy
 - No painel do Netlify, adicione seu domínio customizado.

@@ -29,4 +29,3 @@ Abra o endereço que aparecer no terminal.
 - Se **vídeos/imagens não carregam**, confira se os arquivos existem exatamente nos caminhos usados em:
   - `index.html` (Hero)
   - `data/produtos.json` (cards)
-

@@ -1,147 +1,137 @@
-# MANTO BRASIL — Guia Completo de Edição
+# MANTO BRASIL — Guia de Edição por Seções
 
-## 📂 Estrutura do Projeto (organização oficial)
+Este projeto está organizado para você editar rápido sem se perder.
 
-```
+## Estrutura principal
+
+```text
 USEMANTOBR/
-│
-├── HOME PAGE
-│   └── index.html                          ← Página principal com seções e coleções
-│
-├── COLEÇÕES (renderizadas na home)
-│   ├── LANÇAMENTOS 2026                    ← Carrossel 1
-│   └── THE PRINCE COLLECTION               ← Carrossel 2
-│
-├── PRODUTOS
-│   ├── data/produtos.json                  ← Cadastro dos produtos (coleção, preço, mídia)
-│   ├── components/CardProduto.js           ← Card de produto usado na home
-│   ├── product.html                        ← Página individual de produto (detalhes)
-│   └── assets/Produtos/                    ← Pastas de imagens por produto
-│
-├── PÁGINAS
-│   ├── politica-troca.html                 ← Política de troca
-│   └── privacidade.html                    ← Privacidade
-│
-├── ESTILO
-│   ├── styles/theme.css
-│   └── styles/animations.css
-│
-└── GERAL
-    ├── assets/images/
-    ├── assets/videos/
-    └── TUTORIAL_LOCAL.md
+├── index.html                # Home page
+├── product.html              # Página de produto (detalhes e compra)
+├── pages/
+│   ├── politica-troca.html   # Página legal
+│   └── privacidade.html      # Página legal
+├── data/
+│   └── produtos.json         # Cadastro de produtos
+├── components/
+│   └── CardProduto.js        # Card usado na home
+├── styles/
+│   ├── theme.css             # Cores e tema
+│   └── animations.css        # Animações
+├── assets/
+│   ├── Produtos/             # Fotos e vídeos por produto
+│   ├── images/               # Logo, favicon e imagens gerais
+│   └── videos/               # Vídeos gerais
+├── netlify.toml              # Config de deploy Netlify
+└── docs/
+    ├── DEPLOY_NETLIFY.md     # Passo a passo de deploy
+    └── TUTORIAL_LOCAL.md     # Como rodar localmente
 ```
 
 ---
 
-## ✏️ O QUE EDITAR E ONDE
+## HOME PAGE
 
-### 1. PRODUTOS (preços, vídeos, descrições)
-**Arquivo:** `data/produtos.json`
+### Arquivo
+- `index.html`
 
-```json
-{
-  "nome": "Camisa Titular \"Canarinha\"",  // Nome do produto
-  "preco_original": "349.90",              // Preço riscado
-  "preco_atual": "197.90",                 // Preço em destaque (DOURADO)
-  "link_compra": "https://SEU-LINK.com",   // Link do checkout ← IMPORTANTE
-  "video": "../camis preta e amarela/...", // Caminho do vídeo
-  "thumbnail": "../CAPA.png",              // Imagem de fallback
-  "estoque": "Últimas unidades"            // Texto de estoque
-}
-```
+### O que editar aqui
+- Hero (texto principal, CTA e mídia de fundo)
+- Coleções e carrosséis da home
+- Seção de confiança
 
-### 2. NÚMERO DE WHATSAPP
-Busque por `5511999999999` no `index.html` e troque pelo seu número:
-- **Formato:** `55` + DDD + Número (sem espaços ou traços)
-- **Exemplo:** `5511987654321`
-
-### 3. LINKS DO CHECKOUT
-No `produtos.json`, troque em cada produto:
-```json
-"link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com"
-```
-Por exemplo: link do Hotmart, Kiwify, Eduzz, etc.
-
-### 4. IMAGEM DO HERO (Banner Principal)
-No `index.html`, localize a classe `.hero-bg` no CSS embutido:
-```css
-.hero-bg {
-  background-image: url('./CAPA.png');  /* ← Troque aqui */
-}
-```
-
-### 5. CORES
-**Arquivo:** `styles/theme.css`
-
-As principais variáveis:
-```css
---color-gold:    #C5A059;   /* Dourado dos botões e preços */
---color-bg:      #101010;   /* Fundo preto fosco */
---color-gold-dark: #B8860B; /* Dourado escuro */
-```
-
-### 6. TEXTOS DO HERO
-No `index.html`, localize os comentários com `═` e edite:
-```html
-<h1 class="hero-title">
-  O <span class="gold">HEXA</span><br />
-  COMEÇA <span class="gold">AGORA.</span>   <!-- ← Edite aqui -->
-</h1>
-```
-
-### 7. INSTAGRAM / REDES SOCIAIS
-No `index.html`, localize `id="footer-instagram"` e troque o `href`:
-```html
-<a href="https://instagram.com/SEU-INSTAGRAM" ...>
-```
+### Dados dos produtos na home
+- Vêm de `data/produtos.json`
+- Renderização dos cards: `components/CardProduto.js`
 
 ---
 
-## 🚀 COMO ABRIR NO NAVEGADOR
+## CABEÇALHO
 
-1. **Clique duas vezes** no arquivo `index.html`  
-   OU  
-2. Arraste o `index.html` para o Chrome/Edge  
-   OU  
-3. Use a extensão **Live Server** no VS Code  
+### Onde editar
+- `index.html` (bloco do header)
 
-> ⚠️ Para os **vídeos** carregarem corretamente, use um servidor local.
-> No VS Code: instale **Live Server** → clique com botão direito no `index.html` → "Open with Live Server"
-
----
-
-## 🎨 PERSONALIZAÇÕES RÁPIDAS
-
-| O que mudar | Onde |
-|-------------|------|
-| Preços | `data/produtos.json` |
-| Link de compra | `data/produtos.json` → `link_compra` |
-| Vídeos dos produtos | `data/produtos.json` → `video` |
-| WhatsApp | `index.html` → buscar `5511999999999` |
-| Imagem do hero | `index.html` → `.hero-bg` → `background-image` |
-| Título principal | `index.html` → `<h1 class="hero-title">` |
-| Subtítulo | `index.html` → `<p class="hero-subtitle">` |
-| Cores | `styles/theme.css` → variáveis `:root` |
-| Nome da loja | `index.html` → `<div class="logo-main">` |
-| Tamanhos disponíveis | `data/produtos.json` → `tamanhos` |
-| Badges dos produtos | `data/produtos.json` → `badge` |
+### Itens comuns
+- Logo: `./assets/images/LOGO.png`
+- Favicon: `./assets/images/FAVICON.png`
+- Menu e links do topo
+- Cor do fundo: variável `--color-bg-header` em `styles/theme.css`
 
 ---
 
-## 📱 RESPONSIVO
+## RODAPÉ
 
-A página já é **100% responsiva**:
-- **Desktop:** Grid de 2 colunas
-- **Tablet:** Grid de 1 coluna centralizado  
-- **Mobile:** Menu hambúrguer, layout empilhado
+### Onde editar
+- `index.html` (bloco do footer)
+
+### Itens comuns
+- Links de suporte e redes
+- Links legais:
+  - `./politica-troca.html`
+  - `./privacidade.html`
 
 ---
 
-## 💡 DICAS
+## PRODUTOS
 
-- **Vídeos pesados?** Converta para `.webm` — até 70% menor
-- **Imagens?** Use `.webp` para melhor performance
-- **SEO:** Edite o `<title>` e `<meta name="description">` no topo do `index.html`
-- **Domínio:** Troque `https://SEU-DOMINIO-AQUI.com` na tag `og:url`
-#
+### Cadastro (principal)
+- `data/produtos.json`
+
+### Campos mais importantes por produto
+- `nome`
+- `preco_original`
+- `preco_atual`
+- `link_compra`
+- `thumbnail`
+- `video`
+- `galeria`
+- `tamanhos`
+- `colecao`
+
+### Organização das mídias
+- Mantenha arquivos de cada produto em sua pasta dentro de `assets/Produtos/`
+- Exemplo:
+  - `assets/Produtos/Canarinha 2026/...`
+  - `assets/Produtos/The Prince Black/...`
+
+---
+
+## PÁGINAS (detalhes e legais)
+
+### Página de produto
+- `product.html`
+- Contém:
+  - galeria
+  - bloco de preço e economia
+  - modelagem (masculina/feminina)
+  - tamanhos
+  - frete por cidade (IP aproximado)
+  - gatilhos e CTAs
+
+### Páginas legais
+- `politica-troca.html`
+- `privacidade.html`
+
+---
+
+## DEPLOY
+
+### Netlify
+- Config já pronta em `netlify.toml`
+- Guia rápido: `DEPLOY_NETLIFY.md`
+
+### Fluxo recomendado
+1. Editar conteúdo
+2. Commit/push para `main`
+3. Redeploy no Netlify
+
+---
+
+## Edição rápida (resumo)
+
+- **Trocar preço**: `data/produtos.json`
+- **Trocar vídeo**: `data/produtos.json` (`video` e `galeria`)
+- **Trocar thumb**: `data/produtos.json` (`thumbnail`)
+- **Trocar checkout**: `data/produtos.json` (`link_compra`)
+- **Trocar logo/fav**: `assets/images/` + `index.html`
+- **Trocar cores**: `styles/theme.css`
