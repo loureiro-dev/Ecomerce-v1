@@ -359,3 +359,84 @@ img, video {
   color: var(--color-gold);
   backdrop-filter: blur(10px);
 }
+
+/* ============================================================
+   BOTÃO PREMIUM HERO
+   Usado no banner principal — efeito de brilho animado
+   ============================================================ */
+.btn-premium-hero {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 40px;
+  background: var(--gradient-gold);
+  color: #000;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 30px rgba(197, 160, 89, 0.35);
+}
+
+/* Efeito de brilho passivo (shimmer) */
+.btn-premium-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+  animation: hero-shimmer 3s infinite;
+}
+
+@keyframes hero-shimmer {
+  0%   { left: -75%; }
+  50%  { left: 125%; }
+  100% { left: 125%; }
+}
+
+.btn-premium-hero:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 45px rgba(197, 160, 89, 0.55);
+}
+
+.btn-premium-hero svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-premium-hero:hover svg {
+  transform: translateX(4px);
+}
+
+/* ============================================================
+   LOGO SHIELD (Escudo da marca no Header)
+   ============================================================ */
+.logo-shield {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 6px rgba(197, 160, 89, 0.5));
+  flex-shrink: 0;
+}
+
+.mini-header-logo-shield {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 4px rgba(197, 160, 89, 0.4));
+  flex-shrink: 0;
+}
