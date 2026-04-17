@@ -3,12 +3,315 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Produto | MANTO BRASIL</title>
-  <meta name="description" content="Detalhes do produto MANTO BRASIL." />
+  <title id="page-title">Produto | MANTO BRASIL</title>
+  <meta name="description" id="page-description" content="Detalhes do produto MANTO BRASIL — Camisas da Seleção Brasileira em Edição de Colecionador 2026." />
   <link rel="icon" type="image/png" href="./assets/images/FAVICON.png" />
   <link rel="stylesheet" href="./styles/theme.css" />
   <link rel="stylesheet" href="./styles/animations.css" />
   <style>
+    /* ─── MINI HEADER ───────────────────────────────────────── */
+    .mini-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: var(--color-bg-header);
+      border-bottom: 1px solid var(--color-border-gold);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.6);
+      padding: 0;
+    }
+    .mini-header-inner {
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .mini-header-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+    .mini-header-logo img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+    .mini-header-logo-star { color: var(--color-gold); font-size: 16px; }
+    .mini-header-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      background: var(--gradient-gold);
+      color: #000;
+      font-family: var(--font-display);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: var(--transition-base);
+      text-decoration: none;
+      white-space: nowrap;
+    }
+    .mini-header-cta:hover {
+      box-shadow: 0 4px 16px rgba(197,160,89,0.4);
+      transform: translateY(-1px);
+    }
+
+    /* ─── STICKY BUY BUTTON (MOBILE) ────────────────────────── */
+    .sticky-buy {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 9990;
+      padding: 12px 16px;
+      background: rgba(16,16,16,0.97);
+      border-top: 1px solid var(--color-border-gold);
+      backdrop-filter: blur(16px);
+    }
+    .sticky-buy-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .sticky-buy-price {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+    .sticky-buy-price .sp-old {
+      font-size: 11px;
+      color: var(--color-text-muted);
+      text-decoration: line-through;
+    }
+    .sticky-buy-price .sp-now {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #4CAF50;
+      line-height: 1;
+    }
+    .sticky-buy-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 16px;
+      background: var(--gradient-gold);
+      color: #000;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+    @media (max-width: 900px) {
+      .sticky-buy { display: block; }
+      .product-page { padding-bottom: 90px; }
+    }
+
+    /* ─── MODAL GUIA DE TAMANHOS ─────────────────────────────── */
+    .size-guide-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      opacity: 0;
+      pointer-events: none;
+      backdrop-filter: blur(6px);
+      transition: opacity var(--transition-base);
+    }
+    .size-guide-overlay.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .size-guide-modal {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-gold);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      width: 100%;
+      max-width: 560px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.92);
+      transition: transform var(--transition-spring);
+    }
+    .size-guide-overlay.active .size-guide-modal { transform: scale(1); }
+    .size-guide-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      border-radius: 50%;
+      transition: var(--transition-fast);
+    }
+    .size-guide-close:hover { color: var(--color-text-primary); background: #222; }
+    .size-guide-title {
+      font-family: var(--font-titulo);
+      font-size: var(--fs-xl);
+      margin-bottom: 6px;
+    }
+    .size-guide-subtitle {
+      font-size: var(--fs-xs);
+      color: var(--color-text-muted);
+      margin-bottom: 20px;
+    }
+    .size-guide-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: var(--fs-sm);
+    }
+    .size-guide-table th {
+      background: rgba(197,160,89,0.12);
+      color: var(--color-gold);
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 10px 12px;
+      text-align: center;
+      border: 1px solid var(--color-border);
+    }
+    .size-guide-table td {
+      padding: 9px 12px;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      color: var(--color-text-secondary);
+    }
+    .size-guide-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .size-guide-table td:first-child {
+      font-family: var(--font-display);
+      font-weight: 800;
+      color: var(--color-gold);
+      letter-spacing: 0.05em;
+    }
+    .size-guide-tip {
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: rgba(197,160,89,0.08);
+      border: 1px solid var(--color-border-gold);
+      border-radius: var(--radius-sm);
+      font-size: var(--fs-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.6;
+    }
+    .size-guide-tip strong { color: var(--color-gold); }
+
+    /* ─── BADGES DE SEGURANÇA ────────────────────────────────── */
+    .security-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+    }
+    .sec-badge {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.02em;
+    }
+    .sec-badge svg { color: #4CAF50; flex-shrink: 0; }
+    .sec-badge-divider {
+      width: 1px;
+      height: 14px;
+      background: var(--color-border);
+    }
+
+    /* ─── FAQ ────────────────────────────────────────────────── */
+    .faq-section {
+      margin-top: 8px;
+      border-top: 1px solid var(--color-border);
+      padding-top: 16px;
+    }
+    .faq-title {
+      font-family: var(--font-display);
+      font-size: var(--fs-xs);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-gold);
+      margin-bottom: 12px;
+    }
+    .faq-item {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      margin-bottom: 6px;
+      background: rgba(255,255,255,0.015);
+    }
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      font-weight: 600;
+      color: var(--color-text-primary);
+      transition: var(--transition-fast);
+    }
+    .faq-question:hover { color: var(--color-gold); }
+    .faq-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: var(--color-gold);
+      transition: transform var(--transition-base);
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      display: none;
+      padding: 0 14px 12px;
+      font-family: var(--font-body);
+      font-size: var(--fs-xs);
+      color: var(--color-text-secondary);
+      line-height: 1.65;
+    }
+    .faq-item.open .faq-answer { display: block; }
+
     .product-page {
       min-height: 100vh;
       padding: 28px 0 60px;
@@ -313,12 +616,75 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+    </style>
 </head>
 <body>
+
+  <!-- ══ MINI HEADER ══════════════════════════════════════════ -->
+  <header class="mini-header">
+    <div class="container mini-header-inner">
+      <a href="./index.html" class="mini-header-logo" aria-label="MANTO BRASIL — Voltar para home">
+        <span class="mini-header-logo-star">✦</span>
+        <img src="./assets/images/LOGO.png" alt="MANTO BRASIL" />
+      </a>
+      <a href="./index.html#catalogo" class="mini-header-cta">
+        ← Ver outros produtos
+      </a>
+    </div>
+  </header>
+
+  <!-- ══ STICKY BUY BUTTON (mobile) ════════════════════════════ -->
+  <div class="sticky-buy" id="sticky-buy" aria-hidden="true">
+    <div class="sticky-buy-inner">
+      <div class="sticky-buy-price">
+        <span class="sp-old" id="sticky-price-old"></span>
+        <span class="sp-now" id="sticky-price-now"></span>
+      </div>
+      <a href="#" class="sticky-buy-btn ripple-container" id="sticky-buy-btn" target="_blank" rel="noopener noreferrer">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        COMPRAR AGORA
+      </a>
+    </div>
+  </div>
+
+  <!-- ══ MODAL GUIA DE TAMANHOS ════════════════════════════════ -->
+  <div class="size-guide-overlay" id="size-guide-overlay" role="dialog" aria-modal="true" aria-label="Guia de Tamanhos">
+    <div class="size-guide-modal">
+      <button class="size-guide-close" id="size-guide-close" aria-label="Fechar">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <h2 class="size-guide-title">Guia de Tamanhos</h2>
+      <p class="size-guide-subtitle">Medidas em centímetros. Modelagem esportiva — corte levemente justo.</p>
+      <table class="size-guide-table">
+        <thead>
+          <tr>
+            <th>Tamanho</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Tórax</th>
+            <th>Cintura</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>P</td><td>160–170 cm</td><td>55–70 kg</td><td>86–92 cm</td><td>76–82 cm</td></tr>
+          <tr><td>M</td><td>168–176 cm</td><td>65–80 kg</td><td>92–98 cm</td><td>82–88 cm</td></tr>
+          <tr><td>G</td><td>174–182 cm</td><td>75–90 kg</td><td>98–106 cm</td><td>88–96 cm</td></tr>
+          <tr><td>GG</td><td>180–190 cm</td><td>88–105 kg</td><td>106–114 cm</td><td>96–106 cm</td></tr>
+          <tr><td>XGG</td><td>188–200 cm</td><td>102–125 kg</td><td>114–124 cm</td><td>106–118 cm</td></tr>
+        </tbody>
+      </table>
+      <div class="size-guide-tip">
+        💡 <strong>Na dúvida, escolha um tamanho maior.</strong> Camisas de futebol têm corte esportivo (levemente justo). Para uso casual com mais conforto, suba um tamanho.
+      </div>
+    </div>
+  </div>
+
   <main class="product-page">
     <div class="container">
-      <a class="product-nav" href="./index.html#catalogo">← Voltar para catálogo</a>
       <div id="product-root"></div>
     </div>
   </main>
@@ -395,6 +761,10 @@
     }
 
     async function mountProduto(produto) {
+      // Atualiza SEO dinamicamente com dados do produto
+      document.getElementById('page-title').textContent = `${produto.nome} | MANTO BRASIL`;
+      document.getElementById('page-description').content = produto.descricao || 'Camisa oficial MANTO BRASIL — Coleção 2026.';
+
       const media = Array.isArray(produto.galeria) && produto.galeria.length
         ? produto.galeria
         : [produto.thumbnail].filter(Boolean);
@@ -402,11 +772,20 @@
       const precoOriginal = brl(produto.preco_original);
       const precoAtual = brl(produto.preco_atual);
       const economia = brl(Number.parseFloat(produto.preco_original) - Number.parseFloat(produto.preco_atual));
+      const pctDesconto = Math.round((1 - Number.parseFloat(produto.preco_atual) / Number.parseFloat(produto.preco_original)) * 100);
       const resumo = produto.descricao_longa || produto.descricao || '';
       const cidade = await detectCityByIP();
       const tamanhos = Array.isArray(produto.tamanhos) && produto.tamanhos.length ? produto.tamanhos : ['P', 'M', 'G', 'GG'];
       const initialSize = tamanhos.includes('G') ? 'G' : tamanhos[0];
       const viewCount = Math.floor(Math.random() * 16) + 18;
+
+      // Sticky button prices
+      const stickyOld = document.getElementById('sticky-price-old');
+      const stickyNow = document.getElementById('sticky-price-now');
+      if (stickyOld) stickyOld.textContent = `R$ ${precoOriginal}`;
+      if (stickyNow) stickyNow.textContent = `R$ ${precoAtual}`;
+      const stickyBtn = document.getElementById('sticky-buy-btn');
+      if (stickyBtn) stickyBtn.setAttribute('href', produto.link_compra);
 
       root.innerHTML = `
         <section class="product-layout">
@@ -448,7 +827,12 @@
               </div>
 
               <div>
-                <span class="selector-label">Tamanho</span>
+                <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:6px;">
+                  <span class="selector-label" style="margin-bottom:0;">Tamanho</span>
+                  <button type="button" onclick="window.openSizeGuide && window.openSizeGuide()" style="background:none; border:none; color:var(--color-gold); font-size:11px; font-family:var(--font-body); cursor:pointer; text-decoration:underline; text-underline-offset:3px; padding:0;">
+                    Guia de tamanhos
+                  </button>
+                </div>
                 <div class="selector-options" id="size-options">
                   ${tamanhos.map((size) => `<button class="choice-btn ${size === initialSize ? 'active' : ''}" data-size="${size}" type="button">${size}</button>`).join('')}
                 </div>
@@ -472,14 +856,80 @@
             </div>
 
             <div class="cta-row">
-              <a href="${produto.link_compra}" id="buy-now-btn" class="btn-primary ripple-container" target="_blank" rel="noopener noreferrer">Comprar agora</a>
-              <a href="./index.html#catalogo" class="btn-outline ripple-container">Ver outras camisas</a>
+              <a href="${produto.link_compra}" id="buy-now-btn" class="btn-primary ripple-container effect-gold-pulse" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                COMPRAR AGORA
+              </a>
+              <a href="./index.html#catalogo" class="btn-outline ripple-container"><span>Ver outros produtos</span></a>
+            </div>
+
+            <!-- Badges de segurança do gateway -->
+            <div class="security-badges">
+              <div class="sec-badge">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                Ambiente Criptografado
+              </div>
+              <div class="sec-badge-divider"></div>
+              <div class="sec-badge">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="#4CAF50"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                Aprovação Imediata via Pix
+              </div>
+              <div class="sec-badge-divider"></div>
+              <div class="sec-badge">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                Garantia de 7 Dias
+              </div>
+              <div class="sec-badge-divider"></div>
+              <div class="sec-badge">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                Rastreio em 48h
+              </div>
             </div>
 
             <div class="trigger-list">
               <span>🔥 <strong>${produto.estoque || 'Últimas unidades'}</strong></span>
               <span>👀 <strong>${viewCount} pessoas</strong> visualizando este produto agora</span>
-              <span>🚚 Compra aprovada até 17h: envio em até 24h</span>
+              <span>🚚 Compra via Pix aprovada até 17h: envio em 24h</span>
+            </div>
+
+            <!-- FAQ de objeções -->
+            <div class="faq-section">
+              <p class="faq-title">Perguntas Frequentes</p>
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  Vem com etiqueta e logo bordado?
+                  <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <div class="faq-answer">Sim. Todas as camisas saem com etiqueta original, escudo bordado com fio dourado e acabamento premium idêntico ao modelo oficial.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  Posso personalizar com nome e número?
+                  <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <div class="faq-answer">Sim! Após finalizar a compra, informe no WhatsApp o nome e número desejados. A personalização é feita com impressão sublimática de alta qualidade e pode acrescentar até 2 dias úteis ao prazo.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  Qual o prazo de entrega?
+                  <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <div class="faq-answer">Você recebe o código de rastreio em até 48h após a confirmação do pagamento. O prazo de entrega varia de 5 a 12 dias úteis conforme sua região via Correios.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  Posso trocar se o tamanho ficar errado?
+                  <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <div class="faq-answer">Sim. Você tem 7 dias corridos após o recebimento para solicitar a troca. O produto deve estar sem uso e com etiquetas. Em caso de defeito de fabricação, o frete de devolução é por nossa conta.</div>
+              </div>
+              <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                  O pagamento é seguro?
+                  <svg class="faq-icon" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </button>
+                <div class="faq-answer">100%. Utilizamos gateways certificados com criptografia SSL de ponta a ponta. Aceitamos Pix (aprovação instantânea), cartão de crédito em até 12x e boleto bancário.</div>
+              </div>
             </div>
 
             <p class="product-copy">${resumo}</p>
@@ -537,6 +987,19 @@
 
       updateBuyLink();
       initMainMediaFallback();
+
+      // Sync sticky button com updateBuyLink
+      const syncSticky = () => {
+        const stickyBtnEl = document.getElementById('sticky-buy-btn');
+        const mainBuyBtn = document.getElementById('buy-now-btn');
+        if (stickyBtnEl && mainBuyBtn) {
+          stickyBtnEl.setAttribute('href', mainBuyBtn.getAttribute('href'));
+        }
+      };
+
+      genderBtns.forEach(btn => btn.addEventListener('click', syncSticky));
+      sizeBtns.forEach(btn => btn.addEventListener('click', syncSticky));
+      syncSticky();
     }
 
     function initMainMediaFallback() {
@@ -584,5 +1047,47 @@
 
     init();
   </script>
+
+  <script>
+    /* ─── FAQ Accordion ──────────────────────────────────── */
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest('.faq-question');
+      if (!btn) return;
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      // Fecha todos
+      document.querySelectorAll('.faq-item.open').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      // Abre o clicado (se estava fechado)
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    /* ─── Size Guide Modal ───────────────────────────────── */
+    const sizeGuideOverlay = document.getElementById('size-guide-overlay');
+    const sizeGuideClose = document.getElementById('size-guide-close');
+
+    function openSizeGuide() {
+      if (sizeGuideOverlay) sizeGuideOverlay.classList.add('active');
+    }
+    function closeSizeGuide() {
+      if (sizeGuideOverlay) sizeGuideOverlay.classList.remove('active');
+    }
+
+    if (sizeGuideClose) sizeGuideClose.addEventListener('click', closeSizeGuide);
+    if (sizeGuideOverlay) {
+      sizeGuideOverlay.addEventListener('click', function(e) {
+        if (e.target === this) closeSizeGuide();
+      });
+    }
+
+    // Expõe para o HTML dinâmico
+    window.openSizeGuide = openSizeGuide;
+  </script>
+
 </body>
 </html>
