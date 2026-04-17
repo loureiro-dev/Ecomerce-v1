@@ -24,8 +24,12 @@ USEMANTOBR/
 │   └── videos/               # Vídeos gerais
 ├── netlify.toml              # Config de deploy Netlify
 └── docs/
-    ├── DEPLOY_NETLIFY.md     # Passo a passo de deploy
-    └── TUTORIAL_LOCAL.md     # Como rodar localmente
+    ├── DEPLOY_NETLIFY.md        # Passo a passo de deploy
+    ├── TUTORIAL_LOCAL.md        # Como rodar localmente
+    ├── CONFIGURAR_META_PIXEL.md # Como instalar Pixel de rastreio
+    ├── CUSTOMIZACAO_TEMA.md     # Manual de cores e logos
+    ├── GERENCIAR_REVIEWS.md     # Guia para alterar as avaliações
+    └── COMO_ADICIONAR_PRODUTOS.md # Guia de uso do JSON
 ```
 
 ---
@@ -135,3 +139,12 @@ USEMANTOBR/
 - **Trocar checkout**: `data/produtos.json` (`link_compra`)
 - **Trocar logo/fav**: `assets/images/` + `index.html`
 - **Trocar cores**: `styles/theme.css`
+
+---
+
+## ESTRATÉGIA DE VENDAS E COMBOS (ABORDAGEM HÍBRIDA)
+
+O site foi estruturado para manter o alto nível de conversão rápida, mantendo a tela limpa:
+1. **Compras Individuais (80% do público):** Cliente clica em `COMPRAR AGORA` na home e é levado para focar na compra individual em `product.html`. Lá vai direto para o gateway com 1 clique (com o Yampi/Checkout direto).
+2. **Pacotes e Diversos:** Embaixo do botão de compra existe um botão "Atendimento VIP via WhatsApp". Ali a equipe fecha pacotes customizados manualmente.
+3. **Combos Prontos:** (Em breve) Kits como 'Masculino + Feminino' ganharão seus próprios itens fixos no arquivo `produtos.json`, servindo como links separados com seu próprio link no Gateway de pagamentos já fechado com desconto.
