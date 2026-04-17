@@ -63,7 +63,7 @@ class CardProduto {
       </div>
 
       <!-- Área do Vídeo / Mídia do Produto -->
-      <div class="card-media">
+      <a href="${detalhesHref}" class="card-media" style="text-decoration: none; cursor: pointer; display: block;">
         <div class="card-media-inner">
           <!-- 
             ╔═══════════════════════════════════════════════╗
@@ -101,7 +101,7 @@ class CardProduto {
             </svg>
           </div>
         </div>
-      </div>
+      </a>
 
       <!-- Corpo do Card -->
       <div class="card-body">
@@ -146,50 +146,18 @@ class CardProduto {
           Comprando hoje, enviamos em <strong>até 24h</strong>
         </div>
 
-        <!-- Tamanhos -->
-        <div class="card-sizes" id="sizes-product-${p.id}">
-          <div class="sizes-header">
-            <span class="sizes-label">Tamanho:</span>
-            <a href="#" class="sizes-guide" onclick="return false;">Guia de tamanhos</a>
-          </div>
-          <div class="sizes-grid">
-            ${p.tamanhos.map((t) => `
-              <button 
-                class="size-btn ${t === 'G' ? 'size-btn--selected' : ''}" 
-                data-size="${t}"
-                aria-label="Tamanho ${t}"
-              >${t}</button>
-            `).join('')}
-          </div>
-          <p class="sizes-tip">Na dúvida, pegue um tamanho maior. ✓</p>
-        </div>
-
-        <!-- Botão de Compra -->
+        <!-- Botão Principal -->
         <div class="card-actions">
           <a
             href="${detalhesHref}"
-            class="btn-outline card-btn ripple-container"
+            class="btn-primary card-btn ripple-container effect-gold-pulse"
             id="btn-details-product-${p.id}"
             aria-label="Ver detalhes de ${p.nome}"
-            style="margin-bottom:10px;"
-          >
-            VER DETALHES
-          </a>
-
-          <a
-            href="${p.link_compra}"
-            class="btn-primary card-btn ripple-container effect-gold-pulse"
-            id="btn-buy-product-${p.id}"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Comprar ${p.nome}"
           >
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <path d="M16 10a4 4 0 01-8 0"/>
+              <path d="M15 3h6m0 0v6m0-6-7 7M9 21H3m0 0v-6m0 6 7-7"/>
             </svg>
-            ${p.cor === 'amarela' ? 'COMPRAR AGORA' : 'GARANTIR EXCLUSIVIDADE'}
+            VER DETALHES
           </a>
         </div>
 
@@ -209,15 +177,6 @@ class CardProduto {
     const btns = card.querySelectorAll('.ripple-container');
     btns.forEach(btn => {
       btn.addEventListener('click', (e) => this._createRipple(e, btn));
-    });
-
-    // Seleção de tamanho
-    const sizeBtns = card.querySelectorAll('.size-btn');
-    sizeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        sizeBtns.forEach(b => b.classList.remove('size-btn--selected'));
-        btn.classList.add('size-btn--selected');
-      });
     });
   }
 
