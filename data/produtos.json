@@ -32,7 +32,13 @@
         "assets/Produtos/Canarinha 2026/thumb_canarinha.png"
       ],
       "badge": "Mais Vendida",
-      "tamanhos": ["P", "M", "G", "GG", "XGG"],
+      "tamanhos": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XGG"
+      ],
       "cor": "amarela",
       "estoque": "Últimas unidades disponíveis"
     },
@@ -60,7 +66,13 @@
         "assets/Produtos/The Prince Black/Thumb_the_prince.png"
       ],
       "badge": "Edição Limitada",
-      "tamanhos": ["P", "M", "G", "GG", "XGG"],
+      "tamanhos": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XGG"
+      ],
       "cor": "preta",
       "estoque": "Apenas 50 unidades restantes"
     },
@@ -79,10 +91,17 @@
         "Produto importado em 100% poliéster"
       ],
       "preco_original": "429.90",
-      "preco_atual": "259.90",
+      "preco_atual": "69.90",
       "link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com",
       "video": "",
       "thumbnail": "assets/Produtos/Camisa Amarela 26/camisa_amarela_26.png",
+      "imagem_personalizacao": "assets/Produtos/Personalizar/amarela_costas.png",
+      "personalizacao_config": {
+        "cor_nome": "#06404a",
+        "cor_numero": "#043f4a",
+        "cor_borda": "#13baa0",
+        "rotacao": "0deg"
+      },
       "galeria": [
         "assets/Produtos/Camisa Amarela 26/camisa_amarela_26.png",
         "assets/Produtos/Camisa Amarela 26/image.png",
@@ -90,7 +109,13 @@
         "assets/Produtos/Camisa Amarela 26/img3.png"
       ],
       "badge": "Lançamento 26/27",
-      "tamanhos": ["P", "M", "G", "GG", "XGG"],
+      "tamanhos": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XGG"
+      ],
       "cor": "amarela",
       "estoque": "Alta procura nesta semana"
     },
@@ -109,10 +134,21 @@
         "Detalhes autênticos com escudo em destaque"
       ],
       "preco_original": "449.90",
-      "preco_atual": "279.90",
+      "preco_atual": "69.90",
       "link_compra": "https://SEU-LINK-DE-COMPRA-AQUI.com",
       "video": "",
       "thumbnail": "assets/Produtos/Camisa Azul 26/camisa_azul_26.png",
+      "imagem_personalizacao": "assets/Produtos/Personalizar/azul_costas.png",
+      "personalizacao_config": {
+        "cor_nome": "#f2f2f3",
+        "cor_numero": "#fbfbfb",
+        "cor_borda": "#e2c027",
+        "rotacao": "2deg",
+        "tamanho_numero": "15cqi",
+        "left_nome": "53%",
+        "left_numero": "53%",
+        "espacamento_nome": "0.15em"
+      },
       "galeria": [
         "assets/Produtos/Camisa Azul 26/camisa_azul_26.png",
         "assets/Produtos/Camisa Azul 26/image.png",
@@ -120,7 +156,13 @@
         "assets/Produtos/Camisa Azul 26/img3.png"
       ],
       "badge": "Mais Vendida Atualmente",
-      "tamanhos": ["P", "M", "G", "GG", "XGG"],
+      "tamanhos": [
+        "P",
+        "M",
+        "G",
+        "GG",
+        "XGG"
+      ],
       "cor": "azul",
       "estoque": "Apenas 80 unidades restantes"
     }
