@@ -31,7 +31,7 @@
         "assets/Produtos/Canarinha 2026/camisa-canarinha (online-video-cutter.com).webm",
         "assets/Produtos/Canarinha 2026/thumb_canarinha.png"
       ],
-      "badge": "Mais Vendida",
+      "badge": "Esgotado",
       "tamanhos": [
         "P",
         "M",
@@ -40,7 +40,7 @@
         "XGG"
       ],
       "cor": "amarela",
-      "estoque": "Últimas unidades disponíveis"
+      "estoque": "Sem estoque"
     },
     {
       "id": 2,
@@ -65,7 +65,7 @@
         "assets/Produtos/The Prince Black/0320 (online-video-cutter.com).webm",
         "assets/Produtos/The Prince Black/Thumb_the_prince.png"
       ],
-      "badge": "Edição Limitada",
+      "badge": "Esgotado",
       "tamanhos": [
         "P",
         "M",
@@ -74,7 +74,7 @@
         "XGG"
       ],
       "cor": "preta",
-      "estoque": "Apenas 50 unidades restantes"
+      "estoque": "Sem estoque"
     },
     {
       "id": 3,
@@ -91,7 +91,7 @@
         "Produto importado em 100% poliéster"
       ],
       "preco_original": "249.90",
-      "preco_atual": "169.90",
+      "preco_atual": "149.90",
       "link_compra": "https://wa.me/5531971553878?text=Olá!%20Tenho%20interesse%20na%20Camisa%20Brasil%20I%202026%2F27%20Amarela.%20Pode%20me%20ajudar%3F",
       "video": "",
       "thumbnail": "assets/Produtos/Camisa Amarela 26/camisa_amarela_26.png",
@@ -134,7 +134,7 @@
         "Detalhes autênticos com escudo em destaque"
       ],
       "preco_original": "449.90",
-      "preco_atual": "169.90",
+      "preco_atual": "149.90",
       "link_compra": "https://wa.me/5531971553878?text=Olá!%20Tenho%20interesse%20na%20Camisa%20Jordan%20Brasil%20II%202026-27%20Azul.%20Pode%20me%20ajudar%3F",
       "video": "",
       "thumbnail": "assets/Produtos/Camisa Azul 26/camisa_azul_26.png",
